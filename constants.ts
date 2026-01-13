@@ -116,6 +116,7 @@ export const CERTIFICATIONS: Certification[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
+    company: "Confidential"
     title: "Data Engineer",
     date: "June 2023 - Present",
     achievements: [
