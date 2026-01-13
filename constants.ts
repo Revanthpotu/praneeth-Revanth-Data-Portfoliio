@@ -116,8 +116,7 @@ export const CERTIFICATIONS: Certification[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    company: "PayPal",
-    title: "Azure Data Engineer",
+    title: "Data Engineer",
     date: "June 2023 - Present",
     achievements: [
       "Designed end-to-end Azure Data Factory pipelines handling 5TB+ daily transactional data, reducing ETL processing time.",
@@ -132,7 +131,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: 2,
-    company: "Capgemini", 
+    company: "ServiceNow", 
     title: "Data Engineer",
     date: "May 2021 - July 2022",
     achievements: [
