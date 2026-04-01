@@ -132,7 +132,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: 2,
-    company: "ServiceNow", 
+    company: "Confidential", 
     title: "Data Engineer",
     date: "May 2021 - July 2022",
     achievements: [
