@@ -1,11 +1,11 @@
 import { Project, Experience, Certification, SkillCategory, Education } from './types';
 
 export const PROFILE = {
-  name: "Revanth",
+  name: "L P Revanth Kumar Potu",
   fullName: "Lakshmi Praneeth Revanth Kumar Potu",
   title: "Data Engineer",
   tagline: "Designing cloud data platforms that scale with your business.",
-  bio: "I’m a Data Engineer with 3+ years of experience building scalable, cloud-native data pipelines on Azure and modern lakehouse platforms. I work across Azure Data Factory, Databricks, and Snowflake to design efficient ETL and ELT workflows, using Python, PySpark, and SQL for automation, modeling, and real-time streaming with Event Hubs and Delta Lake. In my recent work, I improved ETL performance by 35% through tuning, workflow redesign, and reusable pipeline patterns. I’m focused on data quality and operational excellence, from implementing Great Expectations and Delta Live Tables to building secure lakehouse architectures, Terraform infrastructure, and CI/CD pipelines in Azure DevOps",
+  bio: "Data and software engineer with 4+ years building cloud-native data platforms and AI-powered applications on Azure, AWS, Snowflake, and Databricks. I design scalable ETL/ELT pipelines and real-time streaming systems — recently cutting ETL runtime by 35% through workflow redesign and reusable pipeline patterns. Beyond pipelines, I've shipped production RAG systems and AI-integrated services, with deep focus on data quality, secure lakehouse architecture, and infrastructure automation using Terraform and Azure DevOps. I'm currently exploring new opportunities in the US where I can help teams ship reliable data and AI platforms at scale.",
   email: "poturevanth@gmail.com",
   phone: "+1(410) 892-2025",
   linkedin: "https://www.linkedin.com/in/revpotu",
