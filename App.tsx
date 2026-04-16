@@ -182,7 +182,7 @@ const App: React.FC = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white leading-tight">
-              Hi, I'm
+              Hi, I'm <span ...>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-400 whitespace-nowrap">
                 {PROFILE.name}
               </span>
@@ -223,7 +223,7 @@ const App: React.FC = () => {
               </a>
             </div>
           </div>
-        
+        </div>
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block text-slate-500">
           <ChevronDown size={32} />
