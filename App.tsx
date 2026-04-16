@@ -182,10 +182,7 @@ const App: React.FC = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white leading-tight">
-              Hi, I'm <span ...>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-400 whitespace-nowrap">
-                {PROFILE.name}
-              </span>
+              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-400 whitespace-nowrap">{PROFILE.name}</span>
             </h1>
             
             <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
