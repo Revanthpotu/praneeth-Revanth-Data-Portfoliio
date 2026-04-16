@@ -1,7 +1,7 @@
 import { Project, Experience, Certification, SkillCategory, Education } from './types';
 
 export const PROFILE = {
-  name: "L P Revanth Kumar Potu",
+  name: "Revanth",
   fullName: "Lakshmi Praneeth Revanth Kumar Potu",
   title: "Data Engineer",
   tagline: "Designing cloud data platforms that scale with your business.",
