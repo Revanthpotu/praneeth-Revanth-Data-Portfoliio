@@ -170,10 +170,10 @@ const App: React.FC = () => {
           <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="max-w-4xl mx-auto w-full relative z-10">
           
           {/* Left Column: Text */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center">
             <div className="inline-block mb-6 px-4 py-1.5 bg-slate-800/80 border border-primary-500/30 rounded-full text-primary-400 text-sm font-medium shadow-[0_0_15px_rgba(14,165,233,0.15)] backdrop-blur-sm">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -181,22 +181,22 @@ const App: React.FC = () => {
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white leading-tight">
               Hi, I'm <br className="hidden lg:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-400 whitespace-nowrap">
                 {PROFILE.name}
               </span>
             </h1>
             
-            <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
-              Four major certifications in AWS, Azure, Snowflake, and Databricks, shaping end-to-end cloud data architectures
+            <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
+              Data engineer with 4+ years building cloud data platforms on AWS, Azure, Snowflake, and Databricks — processing 5TB+ daily with 99.99% uptime.
             </h2>
             
-            <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               Designing cloud data platforms that scale with your business.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={(e) => scrollToSection(e, 'projects')}
                 className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
@@ -211,7 +211,7 @@ const App: React.FC = () => {
               </button>
             </div>
 
-            <div className="mt-12 flex justify-center lg:justify-start gap-6">
+            <div className="mt-12 flex justify-center gap-6">
               <a href={PROFILE.github} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-colors transform hover:scale-110">
                 <Github size={28} />
               </a>
@@ -223,52 +223,6 @@ const App: React.FC = () => {
               </a>
             </div>
           </div>
-
-          {/* Right Column: Hero Image (Hidden on small mobile, visible on large) */}
-          <div className="hidden lg:block relative order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50 group perspective-1000 bg-slate-800/50 p-4">
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/10 to-transparent z-10 pointer-events-none"></div>
-              
-              {/* Data Dashboard Image */}
-              <img 
-                src="data-engineer-illustration.png" 
-                alt="Data Engineering Architecture"
-                className="w-full h-auto transform group-hover:scale-105 transition-transform duration-1000 ease-out"
-                onError={(e) => {
-                  // Fallback if local image not found
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop";
-                }}
-              />
-              
-              {/* Floating Badge 1 */}
-              <div className="absolute top-6 right-6 z-20 bg-slate-900/90 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce-slow">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <Database size={20} className="text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-400">Data Processed</p>
-                  <p className="text-sm font-bold text-white">5TB+ Daily</p>
-                </div>
-              </div>
-
-              {/* Floating Badge 2 */}
-              <div className="absolute bottom-6 left-6 z-20 bg-slate-900/90 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce-slow" style={{ animationDelay: '1.5s' }}>
-                <div className="p-2 bg-green-500/20 rounded-lg">
-                  <Server size={20} className="text-green-400" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-400">Uptime</p>
-                  <p className="text-sm font-bold text-white">99.99%</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Decorative background grid behind image */}
-            <div className="absolute -inset-4 -z-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-primary-500/20 rounded-full blur-2xl"></div>
-          </div>
-        </div>
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block text-slate-500">
