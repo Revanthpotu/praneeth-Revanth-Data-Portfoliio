@@ -8,12 +8,23 @@ export interface Project {
   impact: string;
 }
 
+export interface AchievementCard {
+  icon: string;
+  title: string;
+  metric: string;
+  description: string;
+}
+
 export interface Experience {
   id: number;
   company: string;
   title: string;
   date: string;
+  client?: string;
+  location?: string;
+  summary?: string;
   achievements: string[];
+  achievementCards?: AchievementCard[];
   techStack: string[];
 }
 
