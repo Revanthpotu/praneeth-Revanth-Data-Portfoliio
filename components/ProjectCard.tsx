@@ -66,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         {/* GitHub Link */}
-        {project.githubUrl && (
+            {project.githubUrl && (
           
             href={project.githubUrl}
             target="_blank"
