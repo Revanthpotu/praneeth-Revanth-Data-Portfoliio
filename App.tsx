@@ -51,6 +51,14 @@ const App: React.FC = () => {
     { name: 'Projects', href: 'projects' },
   ];
 
+  const skillIcons: Record<string, React.ReactNode> = {
+    "Data Pipelines": <Database size={20} />,
+    "Real-time Streaming": <Server size={20} />,
+    "Cloud & Lakehouse": <Cloud size={20} />,
+    "AI & RAG Systems": <Terminal size={20} />,
+    "Software Engineering": <Code size={20} />,
+    "DevOps & Infrastructure": <Github size={20} />,
+  };
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-primary-500/30">
       {/* Navigation */}
@@ -325,7 +333,8 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SKILLS.map((skillGroup, idx) => (
               <div key={idx} className="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-slate-600 transition-colors h-full">
-                <h3 className="text-xl font-bold text-primary-400 mb-4 pb-2 border-b border-slate-700 h-14 flex items-center">
+                <h3 className="text-xl font-bold text-primary-400 mb-4 pb-2 border-b border-slate-700 h-14 flex items-center gap-2">
+                  {skillIcons[skillGroup.category]}
                   {skillGroup.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
