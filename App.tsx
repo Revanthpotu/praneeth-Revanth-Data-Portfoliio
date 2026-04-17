@@ -256,23 +256,31 @@ const App: React.FC = () => {
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
               {PROFILE.bio}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
-                <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Cloud size={18} className="text-primary-400"/> Cloud Native</h4>
-                <p className="text-slate-400 text-sm">Specialized in Azure & AWS ecosystems</p>
-              </div>
-              <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
-                <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Server size={18} className="text-primary-400"/> Infrastructure</h4>
-                <p className="text-slate-400 text-sm">Terraform & Docker for scalable ops</p>
-              </div>
-              <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
-                <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Code size={18} className="text-primary-400"/> Pipeline Logic</h4>
-                <p className="text-slate-400 text-sm">Complex Python & PySpark transformations</p>
-              </div>
-              <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
-                <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Database size={18} className="text-primary-400"/> Data Modeling</h4>
-                <p className="text-slate-400 text-sm">Warehouse design & optimization</p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Database size={18} className="text-primary-400"/> Data Pipelines</h4>
+              <p className="text-slate-400 text-sm">Airflow, ADF, dbt — ETL/ELT orchestration</p>
+            </div>
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Server size={18} className="text-primary-400"/> Real-time Streaming</h4>
+              <p className="text-slate-400 text-sm">Kafka, Event Hubs, Delta Lake CDC</p>
+            </div>
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Cloud size={18} className="text-primary-400"/> Cloud & Lakehouse</h4>
+              <p className="text-slate-400 text-sm">Databricks, Snowflake, AWS & Azure</p>
+            </div>
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Terminal size={18} className="text-primary-400"/> AI & RAG Systems</h4>
+              <p className="text-slate-400 text-sm">Vector stores, LLM APIs, Gemini integration</p>
+            </div>
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Code size={18} className="text-primary-400"/> Software Engineering</h4>
+              <p className="text-slate-400 text-sm">Python, FastAPI, TypeScript, REST APIs</p>
+            </div>
+            <div className="bg-slate-900/50 p-4 rounded-lg border border-slate-700 hover:border-primary-500/40 transition-colors">
+              <h4 className="font-bold text-white mb-1 flex items-center gap-2"><Github size={18} className="text-primary-400"/> DevOps & IaC</h4>
+              <p className="text-slate-400 text-sm">Terraform, Azure DevOps, GitHub Actions, Docker</p>
+            </div>
             </div>
           </div>
         </div>
