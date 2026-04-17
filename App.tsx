@@ -185,9 +185,9 @@ const App: React.FC = () => {
               Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-400 whitespace-nowrap">{PROFILE.name}</span>
             </h1>
             
-            <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
-              Data and software engineer with 4+ years building cloud data platforms and AI-powered applications — shipping production RAG systems and ETL pipelines on AWS, Azure, Snowflake, and Databricks.
-            
+           <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
+              Data and software engineer with 4+ years building cloud data platforms and AI-powered applications on AWS, Azure, Snowflake, and Databricks.
+           </h2>
             <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               Designing cloud data platforms that scale with your business.
             </p>
