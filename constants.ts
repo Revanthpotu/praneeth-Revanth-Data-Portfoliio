@@ -199,47 +199,72 @@ export const EDUCATION: Education[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Agentic RAG-Based Multi-Format Document Question Answering System",
-    overview: "Built an agentic Retrieval-Augmented Generation system that answers natural-language questions from large, multi-format documents.",
-    problem: "Enterprises rely on long PDFs, Word files, and mixed-format documents that are hard to search manually. Traditional search tools do not understand context and often return incomplete or irrelevant results.",
-    solution: "Developed a multi-agent RAG pipeline with structured message passing and semantic retrieval. Implemented text ingestion, preprocessing, chunking, and MiniLM-based embeddings. Used FAISS as the vector store. Designed three cooperative agents (Ingestion, Retrieval, LLM Response).",
-    technologies: ["Python", "Streamlit", "FAISS", "LangChain", "LLMs", "MiniLM"],
-    impact: "Delivered an end-to-end, modular system that improves accuracy and user trust by grounding every response in the retrieved source text. Enabled significantly faster information discovery."
+    title: "HealthStream — Real-Time Patient Data Integration Pipeline",
+    overview: "Production-grade real-time data integration platform unifying patient data from 3 heterogeneous healthcare systems, powered by event-driven stream processing and AI-driven operational automation.",
+    problem: "Hospitals run lab results, EHR diagnoses, and pharmacy data on completely different systems (CSV feeds, PostgreSQL, MySQL). There's no single real-time view of a patient, and operational work like onboarding new data sources or triaging failed messages consumes engineering time that should go to clinicians.",
+    solution: "Built a 3-broker Kafka backbone with Avro + Schema Registry for schema-on-write enforcement. Used Debezium CDC for pharmacy (captures DELETEs), JDBC connector for EHR, and a Python producer for lab CSVs. ksqlDB handles windowed joins and stream enrichment; Redis serves materialized patient views with <1ms reads and 24-hour TTL. Built three GPT-4o function-calling agents — a Clinical agent for doctor queries, an Integration agent that automates source onboarding, and a Monitor agent that auto-triages the Dead Letter Queue. Maps cleanly to AWS production (MSK, Managed Flink, ElastiCache, ECS, Glue Schema Registry).",
+    impact: "Delivered a unified patient view across 3 source systems with sub-millisecond reads, automated operational workflows through 18 agent tools spanning ingestion/monitoring/clinical, and a production-style security model (TLS in-transit, KMS at-rest, IAM + ACLs).",
+    technologies: ["Apache Kafka", "ksqlDB", "Debezium CDC", "Avro", "Schema Registry", "Redis", "GPT-4o", "Python", "Flask", "Docker"],
+    githubUrl: "https://github.com/Revanthpotu/healthstream-realtime-patient-pipeline"
   },
   {
     id: 2,
-    title: "F1 Analytics Platform on Azure Databricks",
-    overview: "Designed and orchestrated an end-to-end analytics platform that ingests Formula 1 race data from the Ergast API and transforms it into meaningful insights.",
-    problem: "Raw F1 racing data spans decades and is distributed across multiple API endpoints. It is not immediately usable for analytics, trend detection, or performance comparison.",
-    solution: "Implemented a modern ETL workflow with Databricks and ADLS. Ingested multi-table race datasets into ADLS Raw layer. Built transformation notebooks in PySpark to create curated Delta Lake tables. Added validation and quality checks.",
-    technologies: ["Azure Databricks", "PySpark", "ADF", "ADLS", "Delta Lake", "Power BI"],
-    impact: "Delivered a scalable analytics platform capable of exploring decades of racing history. Enabled insights such as dominant drivers and team consistency. Automated scheduling ensured stable operations."
+    title: "Real-Time Kafka Pipeline with Medallion Architecture",
+    overview: "Production-style real-time pipeline streaming e-commerce events through Kafka, validating and filtering via a stream processor, and delivering clean data to S3 via Kafka Connect.",
+    problem: "Batch ingestion introduces hours of latency and can't handle real-time analytics needs. Raw streaming data arrives dirty — missing keys, negative amounts, invalid enums — and needs validation before downstream consumers touch it.",
+    solution: "Built a Bronze → Silver medallion architecture: Python producer generates e-commerce events (intentionally ~25% invalid to simulate real-world dirty data) with customer_id as the Kafka message key for per-customer ordering. Stream processor consumes from raw_events, validates against 5 business rules, forwards clean events to silver topic using manual offset commits for at-least-once delivery. Kafka Connect S3 Sink ships validated events to S3 in configurable batches. Orchestrated via Docker Compose with Zookeeper, 4 Kafka-stack containers, and Kafka UI for monitoring.",
+    impact: "Real-time ingestion with ~75% yield after validation, customer-level ordering preserved, at-least-once delivery guarantees, and a zero-code S3 sink. Architected with documented paths to Snowflake Snowpipe loading and exactly-once semantics for production hardening.",
+    technologies: ["Apache Kafka", "Kafka Connect", "Zookeeper", "Python", "AWS S3", "Docker", "Medallion Architecture"],
+    githubUrl: "https://github.com/Revanthpotu/kafka-realtime-pipeline"
   },
   {
     id: 3,
-    title: "Accounting Fraud Detection using Deep Learning (RUS-MLP)",
-    overview: "Deep learning–based fraud detection system using a Random Under-Sampling Multi-Layer Perceptron (RUS-MLP).",
-    problem: "Financial statement fraud is difficult to detect because misstatements are hidden within large volumes of 10-K financial data. Traditional statistical models struggle to capture nonlinear patterns.",
-    solution: "Built a DL-based system using RUS-MLP. Processed 28 raw financial items + 14 ratios from COMPUSTAT. Addressed class imbalance using Random Under Sampling. Optimized hyperparameters using Optuna.",
-    technologies: ["Python", "PyTorch", "Optuna", "COMPUSTAT", "Machine Learning"],
-    impact: "Achieved higher AUC scores compared to traditional statistical models. Demonstrated that MLP models can uncover complex patterns in financial statements, improving accuracy in identifying fraudulent firms."
+    title: "dbt + Snowflake ELT Pipeline",
+    overview: "Production-grade ELT pipeline built with dbt Core modelling e-commerce order data across Raw → Staging → Marts layers, running locally on DuckDB in 60 seconds with zero Snowflake credentials needed.",
+    problem: "Analytics teams need reliable, tested, documented data models — but dbt projects are often hard to onboard and expensive to develop against. Running dev iterations against Snowflake burns credits and slows feedback loops.",
+    solution: "Built a dual-target dbt project: DuckDB for local development (zero credentials, instant feedback) and Snowflake for production (single `--target prod` flag). Modelled the full analytics stack: 4 staging views (1:1 with sources), 4 mart tables (fct_orders, dim_customers, mart_product_performance, mart_monthly_revenue). Implemented 41 tests — generic (not_null, unique, accepted_values, relationships) plus 3 custom singular SQL tests covering revenue integrity, line-item DQ, and YTD monotonicity. GitHub Actions CI runs seed → run → test → docs → SQLFluff lint on every push.",
+    impact: "Zero-config local development for contributors, single-flag Snowflake promotion for production, 41 automated tests enforcing schema and business invariants, full dbt docs catalog with lineage graphs. Models a real star schema with RFM-lite customer segmentation and MoM revenue analytics.",
+    technologies: ["dbt Core", "Snowflake", "DuckDB", "SQL", "Docker", "GitHub Actions", "SQLFluff"],
+    githubUrl: "https://github.com/Revanthpotu/dbt-snowflake-elt-pipeline"
   },
   {
     id: 4,
-    title: "Real-Time Streaming with Data Lakehouse Architecture",
-    overview: "Build an end-to-end, event-driven data pipeline that streams high-volume data from object storage into Kafka using S3-style event notifications.",
-    problem: "Traditional batch ingestion introduces latency. This project solves the need for real-time processing by automatically streaming millions of NYC taxi records from object storage to Kafka.",
-    solution: "Created a scalable ingestion layer where MinIO events push data to Kafka. Implemented ZooKeeper-free Kafka (Kraft). Added Python Parquet reader for converting records to JSON streams.",
-    technologies: ["Docker", "Kafka", "MinIO", "Python", "Pandas", "Spark"],
-    impact: "Successfully demonstrated fully automated streaming pipeline. Real-time ingestion of millions of records. Foundation laid for Spark/Flink consumers to build Silver/Gold lakehouse layers."
+    title: "Text-to-SQL Agent with Safety Guardrails",
+    overview: "LangChain-powered agent that converts natural language questions into SQL queries, executes them safely against a database, and explains results in plain English — running entirely locally on Ollama.",
+    problem: "Non-technical stakeholders need to query data but can't write SQL. Giving LLMs direct database access creates catastrophic risk — a hallucinated DROP TABLE or UPDATE statement can destroy production data in one prompt.",
+    solution: "Built a LangChain agent with Ollama (llama3.2) as the default LLM and OpenAI as optional fallback. Added a mandatory safety validator layer that runs before every query execution, blocking DROP, DELETE, UPDATE, INSERT, TRUNCATE, ALTER, CREATE, GRANT, and REVOKE — only SELECT and WITH...SELECT CTEs are allowed. Validator runs independently of the LLM, so even a compromised or hallucinating model can't execute destructive queries. Schema introspection via SQLAlchemy lets the agent reason about any PostgreSQL or SQLite database dynamically. Streamlit UI with example question prompts for non-technical users.",
+    impact: "Production-safe natural language to SQL with a defensible safety layer, zero API cost through local Ollama, works out-of-the-box against any PostgreSQL or SQLite database. Demonstrates the core pattern for deploying LLM agents against sensitive data systems without trust-by-default risks.",
+    technologies: ["LangChain", "Ollama", "PostgreSQL", "SQLAlchemy", "Streamlit", "Docker", "pytest"],
+    githubUrl: "https://github.com/Revanthpotu/text-to-sql-agent"
   },
   {
     id: 5,
-    title: "End-to-End YouTube Data Analysis Pipeline on AWS",
-    overview: "Serverless data lake on AWS to handle the full ETL lifecycle for YouTube video popularity analysis.",
-    problem: "A marketing client needed to identify key factors driving YouTube video popularity. The challenge was ingesting and joining disparate raw data formats (JSON & CSV).",
-    solution: "Deployed S3 as central data lake. Used AWS Lambda with Pandas to clean/normalize data into Parquet. Implemented AWS Glue Crawlers for schema inference and Athena for SQL querying.",
-    technologies: ["AWS S3", "AWS Lambda", "AWS Glue", "AWS Athena", "Python", "Parquet"],
-    impact: "Unified Analysis of semi-structured metadata with statistics. Reduced query costs and latency via Parquet conversion. Established scalable pay-as-you-go serverless architecture."
+    title: "Production Data Quality Framework",
+    overview: "Production-grade data quality validation system built with Great Expectations, featuring automated expectation suites across 5 data quality dimensions, HTML reporting, alerting dispatcher, Docker packaging, and GitHub Actions CI.",
+    problem: "Bad data doesn't fail loudly — it silently corrupts dashboards, trains flawed ML models, and breaks downstream consumers before anyone notices. Schema drift, null explosions, and business-rule violations slip through without automated checks.",
+    solution: "Built four expectation suites covering completeness (null checks, uniqueness), validity (regex patterns, enum sets, type assertions), accuracy (value ranges, distribution health), and schema integrity (column order, referential integrity, row counts). Pipeline orchestrator runs all suites, produces HTML reports, and triggers a severity-graded alert dispatcher (CRITICAL < 50% pass rate down to LOW 90-99%) with Slack/PagerDuty/Email dispatcher stubs. Packaged in Docker with docker-compose, GitHub Actions CI runs all suites per push and uploads artifacts.",
+    impact: "Catches silent pipeline failures before they poison analytics — schema drift, null explosions, unmapped enums, foreign key breaks, and statistical anomalies. Production-extensible architecture with documented paths to Airflow integration, new data sources, and additional alerting channels.",
+    technologies: ["Great Expectations", "Python", "Pandas", "pytest", "Docker", "GitHub Actions"],
+    githubUrl: "https://github.com/Revanthpotu/data-quality-framework"
+  },
+  {
+    id: 6,
+    title: "RAG Pipeline with LangChain",
+    overview: "Production-ready Retrieval-Augmented Generation system for PDF document Q&A using HuggingFace embeddings, ChromaDB vector storage, and local Ollama inference — entirely offline at zero API cost.",
+    problem: "Teams need to ask natural-language questions over internal PDFs (contracts, reports, documentation) but don't want to send sensitive documents to external APIs or pay per-query costs.",
+    solution: "Built an end-to-end RAG pipeline: PDFs loaded via PyMuPDF, chunked with RecursiveCharacterTextSplitter (1000-char chunks, 200 overlap), embedded with sentence-transformers/all-MiniLM-L6-v2, stored in ChromaDB with on-disk persistence. Query pipeline embeds user questions, retrieves top-K chunks by cosine similarity, assembles context with source attribution, and generates grounded answers via Ollama (llama3.2). All settings externalized through environment variables. Streamlit UI with file upload and chat interface, Docker Compose for the full stack.",
+    impact: "Fully offline RAG system with zero API costs, grounded answers with source attribution, configurable chunking and retrieval parameters. Demonstrates the complete RAG pattern — ingestion, embedding, retrieval, generation — in a reproducible containerized deployment.",
+    technologies: ["LangChain", "ChromaDB", "Sentence-Transformers", "Ollama", "PyMuPDF", "Streamlit", "Docker"],
+    githubUrl: "https://github.com/Revanthpotu/rag-pipeline-langchain"
+  },
+  {
+    id: 7,
+    title: "F1 Analytics Platform on Azure Databricks",
+    overview: "End-to-end analytics platform ingesting Formula 1 race data from the Ergast API and transforming it into dashboard-ready insights across decades of racing history.",
+    problem: "Raw F1 racing data spans 70+ years across multiple API endpoints in disparate formats. It's not immediately usable for analytics, trend detection, or performance comparison without substantial transformation.",
+    solution: "Implemented a modern ETL workflow on Azure: ingested multi-table race datasets into the ADLS Raw layer, built PySpark transformation notebooks in Databricks to create curated Delta Lake tables, added validation and quality checks, and scheduled the pipeline through Azure Data Factory. Visualized results in Databricks dashboards focused on driver and team dominance across eras.",
+    impact: "Scalable analytics platform exploring decades of racing history with automated scheduling. Delivered insights on dominant drivers and team consistency patterns across F1 eras.",
+    technologies: ["Azure Databricks", "PySpark", "Azure Data Factory", "ADLS", "Delta Lake", "Power BI"],
+    githubUrl: "https://github.com/Revanthpotu/Formula1-Data-Pipeline-Transformation-Databricks"
   }
 ];
