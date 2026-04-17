@@ -186,8 +186,7 @@ const App: React.FC = () => {
             </h1>
             
             <h2 className="text-xl md:text-2xl text-slate-300 font-medium mb-8 max-w-2xl mx-auto leading-relaxed border-l-4 border-primary-500 pl-4 bg-slate-800/20 py-2 rounded-r-lg">
-              Data engineer with 4+ years building cloud data platforms on AWS, Azure, Snowflake, and Databricks — processing 5TB+ daily with 99.99% uptime.
-            </h2>
+              Data and software engineer with 4+ years building cloud data platforms and AI-powered applications — shipping production RAG systems and ETL pipelines on AWS, Azure, Snowflake, and Databricks.
             
             <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               Designing cloud data platforms that scale with your business.
