@@ -427,7 +427,7 @@ const App: React.FC = () => {
   
   {/* See more on GitHub */}
   <div className="mt-12 flex justify-center">
-    
+        <a
       href={PROFILE.github}
       target="_blank"
       rel="noreferrer"
