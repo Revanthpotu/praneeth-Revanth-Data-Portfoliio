@@ -6,6 +6,7 @@ export interface Project {
   solution: string;
   technologies: string[];
   impact: string;
+  githubUrl?: string;
 }
 
 export interface AchievementCard {
