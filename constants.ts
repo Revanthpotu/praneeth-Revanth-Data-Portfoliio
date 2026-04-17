@@ -90,23 +90,77 @@ export const CERTIFICATIONS: Certification[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    company: "Confidential",
-    title: "Data Engineer",
+    company: "Shineteck INC",
+    title: "Data Engineer — Banking Domain",
+    client: "Banking Client (Confidential)",
+    location: "United States",
     date: "June 2023 - Present",
+    summary: "Building data infrastructure for a large US banking client — real-time streaming pipelines, AI/RAG systems for regulatory compliance, and cloud-native data platforms powering fraud detection, analytics, and enterprise decision-making.",
     achievements: [
-      "Designed end-to-end Azure Data Factory pipelines handling 5TB+ daily transactional data, reducing ETL processing time.",
-      "Implemented and managed real-time streaming solutions using Azure Event Hubs and Databricks, improving payment transaction monitoring by 40%.",
-      "Automated CI/CD deployments via Terraform and Azure DevOps for 20+ microservices, accelerating deployment cycles and ensuring zero downtime.",
-      "Led cross-functional collaboration with a 6-member engineering team to standardize data governance and logging, resulting in full compliance with internal audit standards.",
-      "Established monitoring dashboards with Azure Monitor and Power BI, leveraging Python and SQL to identify anomalies, reducing incident response time by 30%.",
-      "Enhanced infrastructure scalability by migrating legacy batch processes to Delta Lake on Databricks, supporting higher peak payment volumes without performance degradation.",
-      "Improved data security and access management by implementing role-based access controls and encryption protocols in Azure Key Vault and Databricks, reducing potential compliance risks by 25%."
+      "Architected on-premise RAG system for regulatory and compliance document analysis using Claude, LangChain, and Chroma (migrated from Pinecone for data-residency requirements), serving hundreds of analyst queries daily.",
+      "Built Kafka-based streaming pipelines in Python and Java processing 100M+ daily events, implementing real-time enrichment and ML feature generation supporting 4+ fraud detection models.",
+      "Engineered end-to-end observability using Prometheus and Grafana with automated alerting for consumer lag and throughput bottlenecks, maintaining 99.9% uptime across production systems.",
+      "Designed Redshift data marts using star and snowflake schemas powering 30+ Power BI dashboards. Optimized query runtime from 10 minutes to under 2 minutes through sort key optimization and materialized views.",
+      "Developed Databricks Delta Live Tables pipelines with PySpark implementing medallion architecture, processing semi-structured JSON and Avro data with Unity Catalog for governance, access control, and lineage tracking.",
+      "Standardized data access for 12 downstream services by orchestrating 50+ daily Airflow DAGs, exposing curated datasets via Delta Lake tables on S3 and serving aggregated metrics through RESTful APIs.",
+      "Automated environment provisioning using Terraform and AWS CodePipeline, leveraging Kubernetes and Helm for container orchestration — cutting deployment time from 4 hours to 15 minutes.",
+      "Reduced production defects by 30% through an automated testing framework for PySpark pipelines, achieving 92% code coverage with unit, integration, and regression test suites."
     ],
-    techStack: ["Azure Data Factory", "Databricks", "PySpark", "Event Hubs", "Terraform", "Azure DevOps", "SQL"]
+    achievementCards: [
+      {
+        icon: "Sparkles",
+        title: "On-Prem RAG for Compliance",
+        metric: "Production AI",
+        description: "Architected on-premise RAG system for regulatory and compliance document analysis using Claude, LangChain, and Chroma. Migrated from Pinecone to meet data-residency requirements. Serves hundreds of analyst queries daily."
+      },
+      {
+        icon: "Zap",
+        title: "Real-Time Streaming & ML Features",
+        metric: "100M+ events/day",
+        description: "Built Kafka-based streaming pipelines in Python and Java, implementing real-time enrichment and ML feature generation supporting 4+ fraud detection models."
+      },
+      {
+        icon: "Activity",
+        title: "Infrastructure Monitoring",
+        metric: "99.9% uptime",
+        description: "Engineered end-to-end observability using Prometheus and Grafana with automated alerting for consumer lag and throughput bottlenecks across production systems."
+      },
+      {
+        icon: "Database",
+        title: "Data Warehousing & Analytics",
+        metric: "10min → 2min queries",
+        description: "Designed Redshift data marts using star and snowflake schemas powering 30+ Power BI dashboards. Optimized query runtime through sort key optimization and materialized views."
+      },
+      {
+        icon: "Layers",
+        title: "Lakehouse Architecture & Governance",
+        metric: "Unity Catalog + Delta",
+        description: "Developed Databricks Delta Live Tables pipelines with PySpark implementing medallion architecture. Processed semi-structured JSON and Avro data with Unity Catalog for governance, access control, and lineage tracking."
+      },
+      {
+        icon: "GitBranch",
+        title: "Pipeline Orchestration & Data Serving",
+        metric: "50+ DAGs orchestrated",
+        description: "Standardized data access for 12 downstream services by orchestrating daily Airflow DAGs. Exposed curated datasets via Delta Lake tables on S3 and served aggregated metrics through RESTful APIs."
+      },
+      {
+        icon: "Cloud",
+        title: "Cloud Infrastructure & DevOps",
+        metric: "4hr → 15min deploys",
+        description: "Automated environment provisioning using Terraform and AWS CodePipeline, leveraging Kubernetes and Helm for container orchestration."
+      },
+      {
+        icon: "CheckCircle2",
+        title: "Testing & Quality Engineering",
+        metric: "92% code coverage",
+        description: "Reduced production defects by 30% through an automated testing framework for PySpark pipelines, with comprehensive unit, integration, and regression test suites."
+      }
+    ],
+    techStack: ["AWS S3", "Redshift", "Kafka", "Airflow", "Databricks", "Delta Lake", "Unity Catalog", "PySpark", "Python", "Java", "SQL", "Terraform", "Kubernetes", "Helm", "AWS CodePipeline", "Prometheus", "Grafana", "Claude", "LangChain", "Chroma"]
   },
   {
     id: 2,
-    company: "Confidential", 
+    company: "Confidential",
     title: "Data Engineer",
     date: "May 2021 - July 2022",
     achievements: [
@@ -117,7 +171,7 @@ export const EXPERIENCES: Experience[] = [
       "Executed monitoring and alerting frameworks using Power BI, Azure Monitor, and SQL, accelerating anomaly detection and incident response by 35%.",
       "Streamlined data ingestion from many enterprise systems using APIs and Azure Data Factory, boosting cross-platform data availability and analytical efficiency."
     ],
-    techStack: ["Azure Synapse", "Snowflake", "Python", "PySpark", "ADF", "Power BI"]
+    techStack: ["Azure Synapse", "Snowflake", "Python", "PySpark", "Azure Data Factory", "Power BI", "Azure Monitor", "SQL"]
   }
 ];
 
