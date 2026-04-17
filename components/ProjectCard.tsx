@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { Layers, Lightbulb, Zap, Code2 } from 'lucide-react';
+import { Layers, Lightbulb, Zap, Code2, Github, ArrowUpRight } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -14,7 +14,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <h3 className="text-2xl font-bold text-slate-100 mb-2">{project.title}</h3>
           <p className="text-slate-400 text-sm leading-relaxed">{project.overview}</p>
         </div>
-
         <div className="space-y-6 flex-grow">
           {/* Problem */}
           <div className="flex items-start gap-3">
@@ -26,7 +25,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <p className="text-slate-400 text-sm">{project.problem}</p>
             </div>
           </div>
-
           {/* Solution */}
           <div className="flex items-start gap-3">
             <div className="mt-1 min-w-[20px] text-primary-400">
@@ -37,7 +35,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <p className="text-slate-400 text-sm">{project.solution}</p>
             </div>
           </div>
-
           {/* Impact */}
           <div className="flex items-start gap-3">
             <div className="mt-1 min-w-[20px] text-green-400">
@@ -67,6 +64,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             ))}
           </div>
         </div>
+
+        {/* GitHub Link */}
+        {project.githubUrl && (
+          
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900/80 hover:bg-slate-900 text-slate-200 text-sm font-semibold rounded-lg border border-slate-700 hover:border-primary-500/50 transition-all group"
+          >
+            <Github size={16} />
+            View on GitHub
+            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        )}
       </div>
     </div>
   );
