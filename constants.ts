@@ -15,63 +15,37 @@ export const PROFILE = {
 
 export const TECHNICAL_EXPERTISE = [
   "Data Engineering",
-  "Big Data Analytics",
-  "Data Warehousing & Modelling",
-  "Cloud Computing",
-  "Performance Optimization",
-  "Object Oriented Programming",
-  "CI / CD Pipelines Deployment",
-  "System & Database Design",
-  "Software Development"
+  "Software Engineering",
+  "AI & RAG Systems",
+  "Cloud & Lakehouse Architecture",
+  "Real-time Streaming",
+  "DevOps & CI/CD"
 ];
 
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Programming & Scripting Languages",
-    skills: ["Python", "Java", "Scala"]
+    category: "Data Pipelines",
+    skills: ["Python", "SQL", "PySpark", "Pandas", "Airflow", "dbt", "Azure Data Factory", "Databricks Workflows", "Great Expectations"]
   },
   {
-    category: "Databases",
-    skills: ["MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Cassandra"]
+    category: "Real-time Streaming",
+    skills: ["Kafka", "Azure Event Hubs", "AWS Kinesis", "Spark Structured Streaming", "Delta Lake CDC"]
   },
   {
-    category: "Big Data & Analytics",
-    skills: ["PySpark", "Spark SQL", "Hadoop", "Hive", "Delta Lake", "Kafka", "Snowflake"]
+    category: "Cloud & Lakehouse",
+    skills: ["Databricks", "Snowflake", "Azure Synapse", "ADLS", "AWS S3", "AWS Glue", "AWS EMR", "AWS Redshift", "Delta Lake", "Apache Iceberg", "Unity Catalog"]
   },
   {
-    category: "Cloud Platforms & Services",
-    skills: [
-      "Azure", 
-      "Azure Data Factory (ADF)", 
-      "Azure Databricks", 
-      "Azure Synapse Analytics",
-      "Azure Data Lake Storage (ADLS)", 
-      "Azure Monitor", 
-      "Azure Functions",
-      "Azure Key Vault", 
-      "Azure Kubernetes Service (AKS)", 
-      "Azure Event Hubs"
-    ]
+    category: "AI & RAG Systems",
+    skills: ["OpenAI API", "Anthropic API", "Gemini API", "LangChain", "LlamaIndex", "Pinecone", "Chroma", "pgvector", "FastAPI"]
   },
   {
-    category: "Data Engineering & Orchestration",
-    skills: ["Databricks Workflows", "Airflow", "dbt", "Snowflake Tasks"]
+    category: "Software Engineering",
+    skills: ["Python", "Java", "TypeScript", "C++", "FastAPI", "REST APIs", "MySQL", "PostgreSQL", "SQL Server", "MongoDB", "Git"]
   },
   {
-    category: "DevOps & CI/CD",
-    skills: ["Azure DevOps Pipelines", "GitHub Actions", "Terraform", "Docker", "Kubernetes", "Helm"]
-  },
-  {
-    category: "Data Visualization & Monitoring",
-    skills: ["Power BI", "Tableau", "Grafana"]
-  },
-  {
-    category: "Version Control & Project Management Tools",
-    skills: ["Git", "GitHub", "Bitbucket", "Jira", "Confluence"]
-  },
-  {
-    category: "Operating Systems",
-    skills: ["Windows", "Linux", "macOS"]
+    category: "DevOps & Infrastructure",
+    skills: ["Terraform", "Docker", "Kubernetes", "AWS EC2", "AWS Lambda", "AWS Step Functions", "CloudWatch", "Azure DevOps", "GitHub Actions", "CI/CD"]
   }
 ];
 
