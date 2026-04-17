@@ -417,14 +417,28 @@ const App: React.FC = () => {
         </div>
       </Section>
 
-      {/* 6. Projects Section */}
-      <Section id="projects" title="Featured Projects">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </Section>
+{/* 6. Projects Section */}
+<Section id="projects" title="Featured Projects">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    {PROJECTS.map((project) => (
+      <ProjectCard key={project.id} project={project} />
+    ))}
+  </div>
+  
+  {/* See more on GitHub */}
+  <div className="mt-12 flex justify-center">
+    
+      href={PROFILE.github}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-3 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg border border-slate-700 hover:border-primary-500/50 transition-all group"
+    >
+      <Github size={20} />
+      See more projects on my GitHub
+      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+</Section>
 
       {/* Footer / Contact */}
       <footer id="contact" className="bg-slate-950 pt-20 pb-10 border-t border-slate-800">
