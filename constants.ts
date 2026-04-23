@@ -8,7 +8,7 @@ export const PROFILE = {
   bio: "Data and software engineer with 4+ years building cloud-native data platforms and AI-powered applications on Azure, AWS, Snowflake, and Databricks. I design scalable ETL/ELT pipelines and real-time streaming systems, recently cutting ETL runtime by 35% through workflow redesign and reusable pipeline patterns. Beyond pipelines, I've shipped production RAG systems and AI-integrated services, with deep focus on data quality, secure lakehouse architecture, and infrastructure automation using Terraform and Azure DevOps. I'm currently exploring new opportunities in the US where I can help teams ship reliable data and AI platforms at scale.",
   email: "poturevanth@gmail.com",
   phone: "+1(410) 892-2025",
-  linkedin: "https://www.linkedin.com/in/revpotu",
+  linkedin: "https://www.linkedin.com/in/poturevanth/",
   github: "https://github.com/Revanthpotu",
   location: "United States"
 };
